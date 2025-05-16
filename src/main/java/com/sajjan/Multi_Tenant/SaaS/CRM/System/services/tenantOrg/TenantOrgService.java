@@ -6,7 +6,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-public class SchemaService {
+public class TenantOrgService {
 	@Autowired
 	private DataSource dataSource;
 
