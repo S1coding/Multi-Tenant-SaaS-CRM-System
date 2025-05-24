@@ -1,12 +1,12 @@
 package com.sajjan.Multi_Tenant.SaaS.CRM.System.servicesTests.tenantService;
 
 
-import com.sajjan.Multi_Tenant.SaaS.CRM.System.controllers.tenantController.TenantLoginForm;
+import com.sajjan.Multi_Tenant.SaaS.CRM.System.controllers.tenantController.wrapperClasses.TenantLoginForm;
 import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.tenant.Tenants;
 import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.tenant.TenantsRepo;
 import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.tenant.tenantDetails.TenantDetails;
 import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.tenant.tenantDetails.TenantDetailsService;
-import com.sajjan.Multi_Tenant.SaaS.CRM.System.services.TenantService;
+import com.sajjan.Multi_Tenant.SaaS.CRM.System.services.tenants.TenantAccountService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,17 +14,15 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class TenantServiceTest {
+public class TenantAccountServiceTest {
 
 	@Mock
 	private TenantsRepo tenantsRepo;
@@ -33,7 +31,7 @@ public class TenantServiceTest {
 	private TenantDetailsService tenantDetailsService;
 
 	@InjectMocks
-	TenantService tenantService;
+	TenantAccountService tenantAccountService;
 
 	//sample tenants
 	private Tenants tenantOne;
@@ -85,44 +83,11 @@ public class TenantServiceTest {
 
 
 		//Act
-		boolean firstLogin = tenantService.login(invalidLoginForm);
+		boolean firstLogin = tenantAccountService.login(invalidLoginForm);
 
 
 		//Assert
 		Assertions.assertFalse(firstLogin);
-	}
-
-	@Test
-	public void tenantsService_withUniqueEmail_registersTenant(){
-
-		//ARRANGE
-		when(tenantsRepo.findByEmail(tenantOne.getEmail()))
-				.thenReturn(Optional.empty());
-
-		//ACT
-		boolean registered = tenantService.register(tenantOne);
-
-		//ASSERT
-		Assertions.assertEquals(true, registered);
-	}
-
-	//FAIL CASES
-	@Test
-	public void tenantsService_withNotUniqueEmail_failsRegister() {
-
-		//Arrange
-		when(tenantsRepo.findByEmail(tenantOne.getEmail()))
-				.thenReturn(Optional.empty())
-				.thenReturn(Optional.of(tenantOne)); //thenReturn can be chained
-
-		//Act
-		when(tenantsRepo.save(any(Tenants.class))).thenReturn(tenantOne); //org.mockito.ArgumentMatchers.any
-		boolean firstRegister = tenantService.register(tenantOne);
-		boolean secondRegister = tenantService.register(tenantOne);
-
-		//Assert
-		Assertions.assertEquals(true, firstRegister);
-		Assertions.assertEquals(false, secondRegister);
 	}
 
 }
