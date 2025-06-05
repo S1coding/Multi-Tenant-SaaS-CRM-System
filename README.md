@@ -24,7 +24,7 @@ Setup
 -
 1.  ```./mvn clean package``` to create jar
 2. It is recommended to make a docker image for portability
-3. Host on a server that accepts requests from client server that will utilize the application.
+3. Host on a server that accepts requests from client server that will utilize the application
 
     
 See working version at **https://luckylondonwebstudio.shop/**
