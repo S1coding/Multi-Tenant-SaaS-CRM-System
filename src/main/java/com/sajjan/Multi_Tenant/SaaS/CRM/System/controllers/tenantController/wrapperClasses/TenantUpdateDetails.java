@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Builder
-public class TenantDetails {
+public class TenantUpdateDetails {
 	String firstName;
 	String lastName;
 	String phoneNumber;

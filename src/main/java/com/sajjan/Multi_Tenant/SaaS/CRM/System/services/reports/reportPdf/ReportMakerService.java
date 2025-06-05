@@ -1,15 +1,14 @@
-package com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.reports.reportPdf;
+package com.sajjan.Multi_Tenant.SaaS.CRM.System.services.reports.reportPdf;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.deal.DealsRepo;
 import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.reports.Reports;
 import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.reports.ReportsRepo;
-import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.reports.reportPdf.dtos.contribution.ContributionDto;
-import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.reports.reportPdf.dtos.contributorsDetails.ContributorDetailsDto;
-import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.reports.reportPdf.dtos.managerDetails.DateDto;
-import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.reports.reportPdf.dtos.managerDetails.MgrDetailsDto;
-import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.reports.reportPdf.dtos.managerDetails.MgrNotesDto;
-import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.reports.reportPdf.dtos.managerDetails.TitleDto;
+import com.sajjan.Multi_Tenant.SaaS.CRM.System.services.reports.reportPdf.dtos.contribution.ContributionDto;
+import com.sajjan.Multi_Tenant.SaaS.CRM.System.services.reports.reportPdf.dtos.contributorsDetails.ContributorDetailsDto;
+import com.sajjan.Multi_Tenant.SaaS.CRM.System.services.reports.reportPdf.dtos.managerDetails.DateDto;
+import com.sajjan.Multi_Tenant.SaaS.CRM.System.services.reports.reportPdf.dtos.managerDetails.MgrDetailsDto;
+import com.sajjan.Multi_Tenant.SaaS.CRM.System.services.reports.reportPdf.dtos.managerDetails.MgrNotesDto;
+import com.sajjan.Multi_Tenant.SaaS.CRM.System.services.reports.reportPdf.dtos.managerDetails.TitleDto;
 import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.task.Tasks;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -43,7 +42,7 @@ public class ReportMakerService {
 	// List -> Contributor: firstName, LastName, email
 	public List<ContributorDetailsDto> projContributorDetails(Reports reports) {
 		String projectTitle = reports.getForProject();
-		List<Tasks> tasks = tasksRepo.findByTaskProjectAndStatus(projectTitle, "COMPLETE");
+		List<Tasks> tasks = tasksRepo.findByTaskProjectAndStatus(projectTitle, "COMPLETE"); //does it check if project has
 		List<ContributorDetailsDto> contributorDetailsDtos = new ArrayList<>();
 		for (Tasks task:
 		     tasks) {
@@ -51,7 +50,7 @@ public class ReportMakerService {
 			/**2. find tenant by credentials**/Tenants tenant = tenantsRepo.findByEmail(email).get();
 			/**3. make a dto of tenant**/ContributorDetailsDto reportContributorDetailsDto =
 					new ContributorDetailsDto(tenant);
-			/**4. add dto to **/contributionDto.add(reportContributorDetailsDto);
+			/**4. add dto to **/contributorDetailsDtos.add(reportContributorDetailsDto);
 		}
 		return contributorDetailsDtos;
 	}

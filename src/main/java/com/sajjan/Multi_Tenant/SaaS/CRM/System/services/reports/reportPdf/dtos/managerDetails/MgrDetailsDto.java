@@ -1,4 +1,4 @@
-package com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.reports.reportPdf.dtos.managerDetails;
+package com.sajjan.Multi_Tenant.SaaS.CRM.System.services.reports.reportPdf.dtos.managerDetails;
 
 import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.task.Tasks;
 import lombok.AllArgsConstructor;
@@ -11,9 +11,17 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MgrDetailsDto {
-	String title;
+	String reportTitle;
 	String firstName;
 	String lastName;
 	String email;
-	LocalDateTime date;
+	String date;
+
+	public MgrDetailsDto(String title, String firstName, String lastName, String email, LocalDateTime date){
+		this.reportTitle = title;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.date = date.toString();
+	}
 }

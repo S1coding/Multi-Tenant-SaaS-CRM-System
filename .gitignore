@@ -29,5 +29,8 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+## SSL ##
+src/main/resources/global-bundle.pem
+
 ### VS Code ###
 .vscode/

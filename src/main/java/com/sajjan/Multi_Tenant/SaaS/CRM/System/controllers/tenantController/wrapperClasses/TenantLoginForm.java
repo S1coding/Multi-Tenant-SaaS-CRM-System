@@ -1,4 +1,4 @@
-package com.sajjan.Multi_Tenant.SaaS.CRM.System.controllers.tenantController;
+package com.sajjan.Multi_Tenant.SaaS.CRM.System.controllers.tenantController.wrapperClasses;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

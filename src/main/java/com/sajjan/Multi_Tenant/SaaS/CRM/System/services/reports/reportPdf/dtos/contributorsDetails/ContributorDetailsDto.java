@@ -1,7 +1,9 @@
-package com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.reports.reportPdf.dtos.contributorsDetails;
+package com.sajjan.Multi_Tenant.SaaS.CRM.System.services.reports.reportPdf.dtos.contributorsDetails;
 
 import com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.tenant.Tenants;
+import lombok.Data;
 
+@Data
 public class ContributorDetailsDto {
 	private String firstName;
 	private String lastName;

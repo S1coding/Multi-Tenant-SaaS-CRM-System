@@ -1,4 +1,4 @@
-package com.sajjan.Multi_Tenant.SaaS.CRM.System.services;
+package com.sajjan.Multi_Tenant.SaaS.CRM.System.services.tenantOrg;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

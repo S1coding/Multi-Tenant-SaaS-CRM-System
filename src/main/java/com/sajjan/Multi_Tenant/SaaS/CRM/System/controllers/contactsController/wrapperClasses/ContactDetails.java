@@ -1,4 +1,4 @@
-package com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.contact.contactDetails;
+package com.sajjan.Multi_Tenant.SaaS.CRM.System.controllers.contactsController.wrapperClasses;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,6 +20,7 @@ public class ContactDetails {
 	private String company;
 	private String position;
 	private String notes;
+	private String tenant;
 
 	//better to use spring object mapper to avoid potential misconfiguration problems and springs object mapper is probably
 	//better designed and more complex than mine

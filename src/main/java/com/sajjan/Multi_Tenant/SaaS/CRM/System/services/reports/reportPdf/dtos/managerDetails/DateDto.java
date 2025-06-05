@@ -1,4 +1,4 @@
-package com.sajjan.Multi_Tenant.SaaS.CRM.System.entities.reports.reportPdf.dtos.managerDetails;
+package com.sajjan.Multi_Tenant.SaaS.CRM.System.services.reports.reportPdf.dtos.managerDetails;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,5 +8,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Data
 public class DateDto {
-	LocalDateTime date;
+	String date;
+
+	public DateDto(LocalDateTime date){
+		this.date  = date.toString();
+	}
 }

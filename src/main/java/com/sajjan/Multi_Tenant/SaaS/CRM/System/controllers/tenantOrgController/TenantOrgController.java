@@ -1,4 +1,4 @@
-package com.sajjan.Multi_Tenant.SaaS.CRM.System.controllers;
+package com.sajjan.Multi_Tenant.SaaS.CRM.System.controllers.tenantOrgController;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
