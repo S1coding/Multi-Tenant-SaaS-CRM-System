@@ -39,5 +39,5 @@ Setup
 3. Host on a server that accepts requests from client server that will utilize the application
 
 
-See working version at **https://luckylondonwebstudio.shop/**
-Front end code for this server app at **https://github.com/S1coding/Multi-Tenant-SaaS-CRM-System-front-end**
+- See working version at **https://luckylondonwebstudio.shop/**
+- Front end code for this server app at **https://github.com/S1coding/Multi-Tenant-SaaS-CRM-System-front-end**
