@@ -12,11 +12,11 @@ Features:
 - User, Manager and Tenant authorities
 - User hierarchies
 - JJWT authentication
-- Spring security technologies for proven security 
+- Spring security technologies for proven security
 - Pdf generation based on table relations
 
 
-(features will be explained more clearly in the future, 
+(features will be explained more clearly in the future,
 but for now this explains it well enough)
 
 Technologies
@@ -38,5 +38,6 @@ Setup
 2. It is recommended to make a docker image for portability
 3. Host on a server that accepts requests from client server that will utilize the application
 
-    
+
 See working version at **https://luckylondonwebstudio.shop/**
+Front end code for this server app at **https://github.com/S1coding/Multi-Tenant-SaaS-CRM-System-front-end**
