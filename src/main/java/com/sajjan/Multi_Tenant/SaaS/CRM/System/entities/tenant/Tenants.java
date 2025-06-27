@@ -15,21 +15,21 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Tenants {
+public class Tenant {
 
 	@Id
-	String id;
-	String firstName;
-	String lastName;
-	String email;
-	String password;
-	String company;
-	String phoneNumber;
-	String authority;
+	java.lang.String id;
+	java.lang.String firstName;
+	java.lang.String lastName;
+	java.lang.String email;
+	java.lang.String password;
+	java.lang.String company;
+	java.lang.String phoneNumber;
+	java.lang.String authority;
 	LocalDateTime createdAt;
 	LocalDateTime updatedAt;
 
-	public Tenants updateFromDetails(TenantUpdateDetails tenantDetails) {
+	public String updateFromDetails(TenantUpdateDetails tenantDetails) {
 		if (tenantDetails == null) {
 			return this;
 		}
